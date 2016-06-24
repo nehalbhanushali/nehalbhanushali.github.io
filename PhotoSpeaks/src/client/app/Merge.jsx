@@ -2,18 +2,38 @@ import React from 'react';
 import Gallery from './data.jsx';
 import User from './UserComponent.jsx';
 
+class Page extends React.Component {
 
+constructor(props){
+        super(props);
+        this.state = {
+          username : '',
+          useravatar:''
+         
 
-const Page = () => (
+        }
+        this.handleUserName = this.handleUserName.bind(this);
+        
+    }
 
-<div>
-   <User />
+  handleUserName(name) {
+    this.setState({username: name}); 
+   
+  }
+
+render(){
+return (<div>
+   <User username={this.handleUserName}/>
  
   
-    <Gallery />
+    <Gallery username="dhdf"/>
    
 
-</div>
-);
+</div>);
+
+}
+
+}
+
 
 export default Page;

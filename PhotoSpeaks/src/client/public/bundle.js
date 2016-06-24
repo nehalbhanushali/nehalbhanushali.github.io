@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "470d371b84f7fec90984"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "88fcf483bb421acf240d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -30616,6 +30616,8 @@
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(/*! react */ 1);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -30630,14 +30632,49 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Page = function Page() {
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(_UserComponent2.default, null),
-	    _react2.default.createElement(_data2.default, null)
-	  );
-	};
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Page = function (_React$Component) {
+	  _inherits(Page, _React$Component);
+	
+	  function Page(props) {
+	    _classCallCheck(this, Page);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Page).call(this, props));
+	
+	    _this.state = {
+	      username: '',
+	      useravatar: ''
+	
+	    };
+	    _this.handleUserName = _this.handleUserName.bind(_this);
+	
+	    return _this;
+	  }
+	
+	  _createClass(Page, [{
+	    key: 'handleUserName',
+	    value: function handleUserName(name) {
+	      this.setState({ username: name });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_UserComponent2.default, { username: this.handleUserName }),
+	        _react2.default.createElement(_data2.default, { username: 'dhdf' })
+	      );
+	    }
+	  }]);
+	
+	  return Page;
+	}(_react2.default.Component);
 	
 	exports.default = Page;
 
@@ -30694,12 +30731,6 @@
 	        comments: [{ commentbyname: "Monica Geller", commentbyavatar: "http://jamidavisphotography.com/wp-content/uploads/2016/02/St.-Petersburg-Photography-2.jpg", comment: "sexy !" }, { commentbyname: "Rachel Green", commentbyavatar: "http://jamidavisphotography.com/wp-content/uploads/2016/02/St.-Petersburg-Photography-2.jpg", comment: "awesome !" }]
 	      }, (_ref = { im: "http://exploregram.com/wp-content/uploads/2015/02/Happy-Valentines-Day-everyone-Breakfast-were-waffles-with-lots-of-red-toppings-strawbs-bluebs-pomegr.jpg", postbyname: "Tim Cook", postbyavatar: "https://pbs.twimg.com/profile_images/378800000483764274/ebce94fb34c055f3dc238627a576d251.jpeg"
 	      }, _defineProperty(_ref, 'postbyname', "Chandler Bing"), _defineProperty(_ref, 'postbyavatar', "https://pbs.twimg.com/profile_images/378800000483764274/ebce94fb34c055f3dc238627a576d251.jpeg"), _defineProperty(_ref, 'ti', "Thing"), _defineProperty(_ref, 'ca', "Gear"), _defineProperty(_ref, 'comments', [{ commentbyname: "Jannice", commentbyavatar: "http://jamidavisphotography.com/wp-content/uploads/2016/02/St.-Petersburg-Photography-2.jpg", comment: "Oh my Goddd !" }, { commentbyname: "Rachel Green", commentbyavatar: "http://jamidavisphotography.com/wp-content/uploads/2016/02/St.-Petersburg-Photography-2.jpg", comment: "ooo !" }]), _ref)]
-	
-	      /*data : [
-	       {im:"http://jamidavisphotography.com/wp-content/uploads/2016/02/St.-Petersburg-Photography-2.jpg",postbyname:"Tim Cook",postbyavatar:"https://pbs.twimg.com/profile_images/378800000483764274/ebce94fb34c055f3dc238627a576d251.jpeg",ti:"Thing",ca:"Gear"},  
-	       {im:"http://exploregram.com/wp-content/uploads/2015/02/Happy-Valentines-Day-everyone-Breakfast-were-waffles-with-lots-of-red-toppings-strawbs-bluebs-pomegr.jpg",postbyname:"Tim Cook",postbyavatar:"https://pbs.twimg.com/profile_images/378800000483764274/ebce94fb34c055f3dc238627a576d251.jpeg",ti:"dsfdsfdg",ca:"dsfds"},
-	       ]*/
-	
 	    };
 	    // this.handleUnshiftArray = this.handleUnshiftArray.bind(this);
 	    return _this;
@@ -30708,11 +30739,13 @@
 	  _createClass(Gallery, [{
 	    key: 'render',
 	    value: function render() {
+	
+	      console.log("u name is : " + this.props.username);
 	      var abat = this.state.data.map(function (pics) {
 	        return _react2.default.createElement(
 	          'div',
 	          null,
-	          _react2.default.createElement(_AwesomeComponent2.default, { pic: pics.im, postbyname: pics.postbyname, postbyavatar: pics.postbyavatar, title: pics.ti, notes: pics.ca, comments: pics.comments })
+	          _react2.default.createElement(_AwesomeComponent2.default, { userLoggegIn: this.props.username, userLoggegInAvatar: ' ', pic: pics.im, postbyname: pics.postbyname, postbyavatar: pics.postbyavatar, title: pics.ti, notes: pics.ca, comments: pics.comments })
 	        );
 	      });
 	
@@ -30816,10 +30849,8 @@
 	
 	        //alert(event.target.value);
 	
-	        //alert(this.props.comments[0].comment);
-	
-	        this.props.comments.push({ commentbyname: "Jannice",
-	          commentbyavatar: "http://jamidavisphotography.com/wp-content/uploads/2016/02/St.-Petersburg-Photography-2.jpg",
+	        this.props.comments.push({ commentbyname: this.props.userLoggegIn,
+	          commentbyavatar: this.props.userLoggedInAvatar,
 	          comment: event.target.value });
 	
 	        event.target.value = "";
@@ -42928,25 +42959,38 @@
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(User).call(this, props));
 	
 	    _this.state = {
-	      data: [{ user_avatar: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAATWAAAAJDg2ZWE1NGU5LTcyZjQtNGRiOC1iN2YyLTU0ZTE3Y2EwYjVkYg.jpg",
-	        user_name: "Nehal Bhanushali"
-	      }]
+	      username: '',
+	      useravatar: ''
+	      /*data : [
+	       {user_avatar:"https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAATWAAAAJDg2ZWE1NGU5LTcyZjQtNGRiOC1iN2YyLTU0ZTE3Y2EwYjVkYg.jpg",
+	       user_name:"Nehal Bhanushali"
+	       }]*/
 	
 	    };
-	    // this.handleUnshiftArray = this.handleUnshiftArray.bind(this);
+	    _this.handleUserName = _this.handleUserName.bind(_this);
+	    _this.handleUserAvatar = _this.handleUserAvatar.bind(_this);
 	    return _this;
 	  }
 	
 	  _createClass(User, [{
+	    key: 'handleUserName',
+	    value: function handleUserName(name) {
+	      this.setState({ username: name });
+	      this.props.username(name); // avatar later
+	    }
+	  }, {
+	    key: 'handleUserAvatar',
+	    value: function handleUserAvatar(avatar) {
+	      this.setState({ useravatar: avatar });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var user_header = this.state.data.map(function (user) {
-	        return _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement(_UserAppBar2.default, { username: user.user_name, useravatar: user.user_avatar })
-	        );
-	      });
+	      var user_header = _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_UserAppBar2.default, { username: this.handleUserName, useravatar: this.handleUserAvatar })
+	      );
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -43109,6 +43153,10 @@
 	
 	      this.setState({ loggedIn: log,
 	        username: name });
+	
+	      this.props.username(name);
+	
+	      this.props.useravatar("https://lh6.googleusercontent.com/-NlRlqnnbQpY/AAAAAAAAAAI/AAAAAAAAAGc/QzyyYDQmQ1o/photo.jpg");
 	    }
 	  }, {
 	    key: 'render',
@@ -43143,7 +43191,7 @@
 	          _react2.default.createElement(
 	            _MenuItem2.default,
 	            null,
-	            this.props.username
+	            this.state.username
 	          )
 	        )
 	      );

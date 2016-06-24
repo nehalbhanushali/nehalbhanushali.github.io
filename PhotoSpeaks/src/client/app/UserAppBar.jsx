@@ -65,6 +65,10 @@ constructor(props) {
     this.setState({loggedIn: log, 
                   username: name}); 
 
+    this.props.username(name);
+
+    this.props.useravatar("https://lh6.googleusercontent.com/-NlRlqnnbQpY/AAAAAAAAAAI/AAAAAAAAAGc/QzyyYDQmQ1o/photo.jpg");
+
  
 
 }
@@ -88,7 +92,7 @@ constructor(props) {
 onRequestChange={(drawerOpen) => this.setState({drawerOpen})}
        >
           <MenuItem onTouchTap={this.handleClose}><NavigationClose /></MenuItem>
-          <MenuItem >{this.props.username}</MenuItem>
+          <MenuItem >{this.state.username}</MenuItem>
         </Drawer>
         </div>
 );

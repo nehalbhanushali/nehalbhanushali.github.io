@@ -41,10 +41,10 @@ class AwesomeComponent extends React.Component {
 
    //alert(event.target.value);
 
-    //alert(this.props.comments[0].comment);
+  
 
-    this.props.comments.push({ commentbyname: "Jannice",
-    commentbyavatar: "http://jamidavisphotography.com/wp-content/uploads/2016/02/St.-Petersburg-Photography-2.jpg", 
+    this.props.comments.push({ commentbyname: this.props.userLoggegIn,
+    commentbyavatar: this.props.userLoggedInAvatar, 
     comment:event.target.value});
 
      event.target.value = "";
