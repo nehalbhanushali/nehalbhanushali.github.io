@@ -38,8 +38,6 @@ import TextField from 'material-ui/TextField';
  var userName = this.state.uname;
 
    this.props.loggedIn(true, userName); 
-
-
   }
   handleChange(event){
     this.setState({uname: event.target.value});
