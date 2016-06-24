@@ -18,6 +18,9 @@ import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import PopCamera from './PopCameraIcon.jsx';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import LoginButton from './Login.jsx';
+
+
 
 injectTapEventPlugin();
 
@@ -27,39 +30,62 @@ const muiTheme = getMuiTheme({
   },
   appBar: {
     height: 50,
+    color: cyan500
   },
 });
 
 
 class UserAppBar extends React.Component {
 
+
 constructor(props) {
     super(props);
-    this.state = {open: false};
+    this.state = {
+      drawerOpen: false,
+      loggedIn: false,
+      loginDialogOpen :false,
+      username:"PhotoSpeaks"
+
+    };
     this.handleToggle = this.handleToggle.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
+   
   }
+  
 
-  handleToggle(){ 
-console.log("checl!");
-    this.setState({open: !this.state.open}); }
+  handleToggle(){ this.setState({drawerOpen: !this.state.drawerOpen}); }
 
-handleClose() {this.setState({open: false}); }
+  handleClose() {this.setState({drawerOpen: false}); }
 
-  render() {return(
+  handleLogin(log, name) {
+
+    
+
+    this.setState({loggedIn: log, 
+                  username: name}); 
+
+ 
+
+}
+
+  render() {
+
+  //title={ this.state.loggedIn ? { uname } : "PhotoSpeaks"}
+    return(
   
 <div>
 <AppBar
-    title="PhotoSpeaks"
+    title={this.state.username}
     onLeftIconButtonTouchTap= {this.handleToggle}
   
-    iconElementRight={
-      <PopCamera />
-    }
+    iconElementRight={ this.state.loggedIn ? <PopCamera /> : <LoginButton loggedIn={this.handleLogin}
+                                                                           
+                                                               /> }
   />
  <Drawer docked={false} 
-       open={this.state.open}
-onRequestChange={(open) => this.setState({open})}
+       open={this.state.drawerOpen}
+onRequestChange={(drawerOpen) => this.setState({drawerOpen})}
        >
           <MenuItem onTouchTap={this.handleClose}><NavigationClose /></MenuItem>
           <MenuItem >{this.props.username}</MenuItem>
