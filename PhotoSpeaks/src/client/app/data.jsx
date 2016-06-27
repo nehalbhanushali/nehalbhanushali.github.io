@@ -40,10 +40,10 @@ constructor(props){
 
 
 render(){ 
-
-  console.log("u name is : "+this.props.username);
+var username = this.props.username;
+  //console.log("u name is : "+this.props.username);
 var abat =this.state.data.map(function(pics){
-return <div><AwesomeComponent userLoggegIn ={this.props.username} userLoggegInAvatar = " " pic={pics.im} postbyname = {pics.postbyname} postbyavatar = {pics.postbyavatar} title={pics.ti} notes={pics.ca} comments = {pics.comments}/></div>
+return <div><AwesomeComponent userLoggegIn = {username} pic={pics.im} postbyname = {pics.postbyname} postbyavatar = {pics.postbyavatar} title={pics.ti} notes={pics.ca} comments = {pics.comments}/></div>
 });
 
 

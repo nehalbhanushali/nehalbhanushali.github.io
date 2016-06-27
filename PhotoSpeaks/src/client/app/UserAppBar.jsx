@@ -64,6 +64,7 @@ constructor(props) {
 
     this.setState({loggedIn: log, 
                   username: name}); 
+    //console.log("final in uab "+name);
 
     this.props.username(name);
 

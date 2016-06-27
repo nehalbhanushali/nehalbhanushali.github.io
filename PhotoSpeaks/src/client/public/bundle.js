@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "88fcf483bb421acf240d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "74723d62d8a50e03bf9b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -30659,16 +30659,18 @@
 	  _createClass(Page, [{
 	    key: 'handleUserName',
 	    value: function handleUserName(name) {
+	
 	      this.setState({ username: name });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      //console.log("final "+this.state.username);
 	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(_UserComponent2.default, { username: this.handleUserName }),
-	        _react2.default.createElement(_data2.default, { username: 'dhdf' })
+	        _react2.default.createElement(_data2.default, { username: this.state.username })
 	      );
 	    }
 	  }]);
@@ -30739,13 +30741,13 @@
 	  _createClass(Gallery, [{
 	    key: 'render',
 	    value: function render() {
-	
-	      console.log("u name is : " + this.props.username);
+	      var username = this.props.username;
+	      //console.log("u name is : "+this.props.username);
 	      var abat = this.state.data.map(function (pics) {
 	        return _react2.default.createElement(
 	          'div',
 	          null,
-	          _react2.default.createElement(_AwesomeComponent2.default, { userLoggegIn: this.props.username, userLoggegInAvatar: ' ', pic: pics.im, postbyname: pics.postbyname, postbyavatar: pics.postbyavatar, title: pics.ti, notes: pics.ca, comments: pics.comments })
+	          _react2.default.createElement(_AwesomeComponent2.default, { userLoggegIn: username, pic: pics.im, postbyname: pics.postbyname, postbyavatar: pics.postbyavatar, title: pics.ti, notes: pics.ca, comments: pics.comments })
 	        );
 	      });
 	
@@ -42976,6 +42978,7 @@
 	    key: 'handleUserName',
 	    value: function handleUserName(name) {
 	      this.setState({ username: name });
+	      console.log("final before" + name);
 	      this.props.username(name); // avatar later
 	    }
 	  }, {
@@ -43153,6 +43156,7 @@
 	
 	      this.setState({ loggedIn: log,
 	        username: name });
+	      //console.log("final in uab "+name);
 	
 	      this.props.username(name);
 	

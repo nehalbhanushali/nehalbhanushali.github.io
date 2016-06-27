@@ -23,6 +23,7 @@ constructor(props){
 
   handleUserName(name) {
     this.setState({username: name}); 
+    console.log("final before"+name);
     this.props.username(name); // avatar later
   }
 

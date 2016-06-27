@@ -17,16 +17,18 @@ constructor(props){
     }
 
   handleUserName(name) {
+
     this.setState({username: name}); 
    
   }
 
 render(){
+ //console.log("final "+this.state.username);
 return (<div>
    <User username={this.handleUserName}/>
  
   
-    <Gallery username="dhdf"/>
+    <Gallery username={this.state.username}/>
    
 
 </div>);
