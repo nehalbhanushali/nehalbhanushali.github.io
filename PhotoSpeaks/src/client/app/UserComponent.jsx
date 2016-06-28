@@ -19,11 +19,12 @@ constructor(props){
         }
         this.handleUserName = this.handleUserName.bind(this);
          this.handleUserAvatar = this.handleUserAvatar.bind(this);
+          this.handlePost = this.handlePost.bind(this);
     }
 
   handleUserName(name) {
     this.setState({username: name}); 
-    console.log("final before"+name);
+    //console.log("final before"+name);
     this.props.username(name); // avatar later
   }
 
@@ -31,8 +32,15 @@ constructor(props){
     this.setState({useravatar: avatar}); 
   }
 
+  handlePost(url, tag){
+  //ßconsole.log(url+" << >> "+tag);
+
+   this.props.post(url, tag); 
+
+}
+
 render(){
-var user_header = <div><UserAppBar username={this.handleUserName} useravatar={this.handleUserAvatar} /></div>;
+var user_header = <div><UserAppBar post ={this.handlePost} username={this.handleUserName} useravatar={this.handleUserAvatar} /></div>;
 return(
   <div>{user_header}  
   </div>

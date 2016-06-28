@@ -22,7 +22,11 @@ import LoginButton from './Login.jsx';
 
 
 
+
+
 injectTapEventPlugin();
+
+
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -45,18 +49,30 @@ constructor(props) {
       loggedIn: false,
       loginDialogOpen :false,
       username:"PhotoSpeaks"
-
+     
     };
     this.handleToggle = this.handleToggle.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
-   
+    this.handleLogout = this.handleLogout.bind(this);
+    this.handlePost = this.handlePost.bind(this);
   }
   
 
   handleToggle(){ this.setState({drawerOpen: !this.state.drawerOpen}); }
 
   handleClose() {this.setState({drawerOpen: false}); }
+  handleLogout() {
+    //console.log("bye");
+  this.setState({loggedIn: false, 
+                  username: "PhotoSpeaks"}); 
+    //console.log("final in uab "+name);
+
+    this.props.username("PhotoSpeaks");
+
+    this.props.useravatar("");
+    this.handleClose();
+}
 
   handleLogin(log, name) {
 
@@ -74,6 +90,15 @@ constructor(props) {
 
 }
 
+handlePost(url, tag){
+  //console.log(url+" "+tag);
+
+   this.props.post(url, tag); 
+
+  
+
+}
+
   render() {
 
   //title={ this.state.loggedIn ? { uname } : "PhotoSpeaks"}
@@ -84,7 +109,7 @@ constructor(props) {
     title={this.state.username}
     onLeftIconButtonTouchTap= {this.handleToggle}
   
-    iconElementRight={ this.state.loggedIn ? <PopCamera /> : <LoginButton loggedIn={this.handleLogin}
+    iconElementRight={ this.state.loggedIn ? <PopCamera post={this.handlePost}/> : <LoginButton loggedIn={this.handleLogin}
                                                                            
                                                                /> }
   />
@@ -94,6 +119,7 @@ onRequestChange={(drawerOpen) => this.setState({drawerOpen})}
        >
           <MenuItem onTouchTap={this.handleClose}><NavigationClose /></MenuItem>
           <MenuItem >{this.state.username}</MenuItem>
+           <MenuItem onTouchTap={this.handleLogout}>{this.state.loggedIn ? "Logout" : " " }</MenuItem>
         </Drawer>
         </div>
 );

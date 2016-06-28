@@ -4,6 +4,11 @@ import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import TextField from 'material-ui/TextField';
+import {white} from 'material-ui/styles/colors';
+const labelStyle = {
+  color: white,
+
+};
 
  class LoginButtton extends React.Component {
 
@@ -50,12 +55,13 @@ import TextField from 'material-ui/TextField';
         label="Login"
         primary={true}
         onTouchTap={this.handleCloseAndLogin}
+
       />,
       
     ];
 
     return (
-     <div> <FlatButton label="Login" onTouchTap={this.handleLoginDialogOpen}/> 
+     <div> <FlatButton style={labelStyle} label="Login" onTouchTap={this.handleLoginDialogOpen}/> 
         <Dialog
           title="Login to PhotoSpeaks"
           actions={actions}

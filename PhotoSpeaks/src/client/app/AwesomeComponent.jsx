@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -7,6 +8,7 @@ import TextField from 'material-ui/TextField';
 
 import LikeButton from './LikeButton.jsx';
 import CommentList from './CommentBox.jsx';
+import Tag from './HashTags.jsx';
 
 
 
@@ -17,14 +19,16 @@ class AwesomeComponent extends React.Component {
    // this.state = {likesCount : 0};
 
     this.state = {
-      liked: false
+      liked: false,
+      tagSeachKey:'',
+      tagSearchOn:false
       
     };
 
 
     this.handleClick = this.handleClick.bind(this);
     this.handleEnterKeyPress = this.handleEnterKeyPress.bind(this);
- 
+ this.handleTagSearch = this.handleTagSearch.bind(this);
 
     //this.onLike = this.onLike.bind(this);
   }
@@ -32,7 +36,14 @@ class AwesomeComponent extends React.Component {
   handleClick() {
     this.setState({liked: !this.state.liked});
   }
+handleTagSearch(tagForSearch){
 
+
+this.setState({tagSeachKey:tagForSearch, tagSearchOn:true});
+
+this.props.tagForSearch(tagForSearch, true);
+
+}
   handleEnterKeyPress(event) {
     var code = event.keyCode;
     if(event.keyCode == 13){
@@ -84,13 +95,13 @@ commentbyavatar = {comment.commentbyavatar} comment={comment.comment}/>
       avatar={this.props.postbyavatar}
     />
     <CardMedia
-      overlay={<CardTitle title={this.props.title} subtitle={this.props.notes}/>}
+      overlay={<CardTitle title={this.props.title} />}
     >
       <img src={this.props.pic} />
     </CardMedia>
     
     <CardText>
-   
+  <Tag similarHashTag ={this.handleTagSearch} hash ={this.props.notes}/>
   {commentList}
   
     </CardText>
