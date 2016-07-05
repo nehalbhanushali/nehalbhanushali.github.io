@@ -19,8 +19,10 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import PopCamera from './PopCameraIcon.jsx';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import LoginButton from './Login.jsx';
+import ActionLabel from 'material-ui/svg-icons/action/label';
+import {red500, green500, orange500} from 'material-ui/styles/colors';
 
-
+import SelectField from 'material-ui/SelectField';
 
 
 
@@ -117,9 +119,11 @@ handlePost(url, tag){
        open={this.state.drawerOpen}
 onRequestChange={(drawerOpen) => this.setState({drawerOpen})}
        >
+       
           <MenuItem onTouchTap={this.handleClose}><NavigationClose /></MenuItem>
-          <MenuItem >{this.state.username}</MenuItem>
+          <MenuItem leftIcon={<ActionLabel color={orange500} />}>{this.state.username}</MenuItem>
            <MenuItem onTouchTap={this.handleLogout}>{this.state.loggedIn ? "Logout" : " " }</MenuItem>
+          
         </Drawer>
         </div>
 );

@@ -50,11 +50,11 @@ this.props.tagForSearch(tagForSearch, true);
      
     this.setState({ commentValue: event.target.value});
 
-   //alert(event.target.value);
+   var cID = this.props.comments.length + 1;
 
   
 
-    this.props.comments.push({ commentbyname: this.props.userLoggegIn,
+    this.props.comments.push({id:cID, commentbyname: this.props.userLoggegIn,
     commentbyavatar: this.props.userLoggedInAvatar, 
     comment:event.target.value});
 
@@ -78,12 +78,12 @@ this.props.tagForSearch(tagForSearch, true);
 var commentList =this.props.comments.map(function(comment){
 
 
-return <div>
+return 
 
-<CommentList commentbyname={comment.commentbyname} 
+<CommentList key = {comment.id} commentbyname={comment.commentbyname} 
 commentbyavatar = {comment.commentbyavatar} comment={comment.comment}/>
 
-</div>
+
 });
 
     return (

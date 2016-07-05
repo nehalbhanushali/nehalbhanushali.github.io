@@ -60,6 +60,8 @@ const labelStyle = {
       
     ];
 
+    var errorElem = <h2> why !</h2>;
+
     return (
      <div> <FlatButton style={labelStyle} label="Login" onTouchTap={this.handleLoginDialogOpen}/> 
         <Dialog
