@@ -9,6 +9,7 @@ import TextField from 'material-ui/TextField';
 import LikeButton from './LikeButton.jsx';
 import CommentList from './CommentBox.jsx';
 import Tag from './HashTags.jsx';
+import { Grid, Row, Col, Clearfix } from 'react-bootstrap';
 
 
 
@@ -78,16 +79,14 @@ this.props.tagForSearch(tagForSearch, true);
 var commentList =this.props.comments.map(function(comment){
 
 
-return 
-
-<CommentList key = {comment.id} commentbyname={comment.commentbyname} 
+return <CommentList key = {comment.id} commentbyname={comment.commentbyname} 
 commentbyavatar = {comment.commentbyavatar} comment={comment.comment}/>
 
 
 });
 
     return (
-      <div>
+      <Col xs={12} md={8} mdOffset={2} lg = {6} lgOffset={3}>
 
  <Card>
     <CardHeader
@@ -95,13 +94,13 @@ commentbyavatar = {comment.commentbyavatar} comment={comment.comment}/>
       avatar={this.props.postbyavatar}
     />
     <CardMedia
-      overlay={<CardTitle title={this.props.title} />}
+      overlay={<CardTitle title={<Tag similarHashTag ={this.handleTagSearch} hash ={this.props.notes}/>} />}
     >
       <img src={this.props.pic} />
     </CardMedia>
     
     <CardText>
-  <Tag similarHashTag ={this.handleTagSearch} hash ={this.props.notes}/>
+  
   {commentList}
   
     </CardText>
@@ -118,7 +117,7 @@ commentbyavatar = {comment.commentbyavatar} comment={comment.comment}/>
     </CardActions>
   </Card>
 
-      </div>
+      </Col>
     );
   }
 

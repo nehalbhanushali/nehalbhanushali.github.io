@@ -37,11 +37,7 @@ class CommentList extends React.Component {
   render() {
 
 
-    return (
-//leftAvatar={<Avatar src={this.props.commentbyavatar} />}
-
-
-      <ListItem
+    return (<ListItem
           
           
           secondaryText={
