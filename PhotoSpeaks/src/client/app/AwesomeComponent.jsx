@@ -86,7 +86,7 @@ commentbyavatar = {comment.commentbyavatar} comment={comment.comment}/>
 });
 
     return (
-      <Col xs={12} md={8} mdOffset={2} lg = {6} lgOffset={3}>
+      <Col xs={12} sm ={10} smOffset = {1} md={8} mdOffset={2} lg = {6} lgOffset={3}>
 
  <Card>
     <CardHeader

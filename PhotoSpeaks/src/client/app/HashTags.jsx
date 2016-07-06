@@ -3,11 +3,12 @@ import Gallery from './data.jsx';
 import TextField from 'material-ui/TextField';
 //import injectTapEventPlugin from 'react-tap-event-plugin';
 import Chip from 'material-ui/Chip';
-import {blue300, indigo900, white} from 'material-ui/styles/colors';
+import {blue300, indigo900, white, black } from 'material-ui/styles/colors';
 
 const styles = {
   chip: {
     margin: 4,
+  
   },
   wrapper: {
     display: 'flex',
@@ -50,10 +51,11 @@ handleTouchTap(event) {
 
   render() {
     return (
-      <div style={styles.wrapper}>
+      <div >
       
         <Chip
-          backgroundColor={white}
+          backgroundColor={black}
+          labelColor={white}
           style={styles.chip}
            onTouchTap={this.handleTouchTap}
         >

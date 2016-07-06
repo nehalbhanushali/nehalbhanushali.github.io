@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c69f0c5f045a6f5926b9"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "27ade4756a19b2c9695b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -43575,7 +43575,7 @@
 	
 	      return _react2.default.createElement(
 	        _reactBootstrap.Col,
-	        { xs: 12, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
+	        { xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
 	        _react2.default.createElement(
 	          _Card.Card,
 	          null,
@@ -45654,6 +45654,7 @@
 	var styles = {
 	  chip: {
 	    margin: 4
+	
 	  },
 	  wrapper: {
 	    display: 'flex',
@@ -45699,11 +45700,12 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { style: styles.wrapper },
+	        null,
 	        _react2.default.createElement(
 	          _Chip2.default,
 	          {
-	            backgroundColor: _colors.white,
+	            backgroundColor: _colors.black,
+	            labelColor: _colors.white,
 	            style: styles.chip,
 	            onTouchTap: this.handleTouchTap
 	          },
