@@ -15,7 +15,36 @@ import Snackbar from 'material-ui/Snackbar';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import TextField from 'material-ui/TextField';
+import AutoComplete from 'material-ui/AutoComplete';
 
+const fruit = [
+  'Apple', 'Apricot', 'Avocado',
+  'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry',
+  'Boysenberry', 'Blood Orange',
+  'Cantaloupe', 'Currant', 'Cherry', 'Cherimoya', 'Cloudberry',
+  'Coconut', 'Cranberry', 'Clementine',
+  'Damson', 'Date', 'Dragonfruit', 'Durian',
+  'Elderberry',
+  'Feijoa', 'Fig',
+  'Goji berry', 'Gooseberry', 'Grape', 'Grapefruit', 'Guava',
+  'Honeydew', 'Huckleberry',
+  'Jabouticaba', 'Jackfruit', 'Jambul', 'Jujube', 'Juniper berry',
+  'Kiwi fruit', 'Kumquat',
+  'Lemon', 'Lime', 'Loquat', 'Lychee',
+  'Nectarine',
+  'Mango', 'Marion berry', 'Melon', 'Miracle fruit', 'Mulberry', 'Mandarine',
+  'Olive', 'Orange',
+  'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Physalis', 'Plum', 'Pineapple',
+  'Pumpkin', 'Pomegranate', 'Pomelo', 'Purple Mangosteen',
+  'Quince',
+  'Raspberry', 'Raisin', 'Rambutan', 'Redcurrant',
+  'Salal berry', 'Satsuma', 'Star fruit', 'Strawberry', 'Squash', 'Salmonberry',
+  'Tamarillo', 'Tamarind', 'Tomato', 'Tangerine',
+  'Ugli fruit',
+  'Watermelon',
+];
+
+const tagbank = ['#Fashion','#Photography','#GOT','#Travel','#Travel','#TravelDiaries','#Food','Foodgasm','#Foodlove','#Fun',];
 
 //injectTapEventPlugin();
 
@@ -41,7 +70,7 @@ const style = {
       open: false,
       postDialogOpen :false,
        snackbarOpen: false,
-      url:"",
+      url:"http://terrain-mag.com/wp-content/uploads/2014/10/shutterstock_1330842741.jpg",
       tag:"",
        
     };
@@ -82,10 +111,13 @@ const style = {
 
   }
   handleURLChange(event){
+
+
     this.setState({url: event.target.value});
   }
-   handleTagChange(event){
-    this.setState({tag: event.target.value});
+   handleTagChange(value){
+   //console.log('tag gfkjs val on new req ' +event);
+    this.setState({tag: value});
   }
 
   handleTouchTap(event){
@@ -127,6 +159,14 @@ const style = {
       />,
       
     ];
+
+    /*  <TextField
+      hintText="Enter one word description"
+      onChange = {this.handleTagChange}
+      value={this.state.tag}
+      floatingLabelText="Description"
+     
+    />*/
     return (
       <div>
     
@@ -148,20 +188,28 @@ const style = {
       floatingLabelText="URL"
     /><br />
     <br />
-    <TextField
+   <AutoComplete
       hintText="Enter one word description"
-      onChange = {this.handleTagChange}
+      onNewRequest = {this.handleTagChange}
+      
       value={this.state.tag}
       floatingLabelText="Description"
+      filter={AutoComplete.fuzzyFilter}
+      dataSource={tagbank}
+      maxSearchResults={5}
      
-    /><br /></div>
+    />
+
+
+
+    <br /></div>
         </Dialog>
          <Snackbar
           open={this.state.snackbarOpen}
           message="Post created successfully"
           autoHideDuration={4000}
           onRequestClose={this.handleSnackbarRequestClose}
-         // bodyStyle={{backgroundColor: '#ff0000'}}
+          messageStyle= {{color: '#441F4B'}} // not working
          bodyStyle={style.bodyStyle}
         style ={{
           top: 0,

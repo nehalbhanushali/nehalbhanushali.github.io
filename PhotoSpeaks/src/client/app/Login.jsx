@@ -18,8 +18,8 @@ const labelStyle = {
     this.state = {
       loginDialogOpen :false,
        isloggedIn:false,
-       uname:' ',
-       pswd:''
+       uname:'Rydham',
+       pswd:'sdfsdf'
     };
 
     this.handleLoginDialogOpen = this.handleLoginDialogOpen.bind(this);
