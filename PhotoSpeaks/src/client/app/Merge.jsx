@@ -1,9 +1,15 @@
 import React from 'react';
 //import Gallery from './data.jsx';
+import Time from 'react-time';
+//import TimeAgo from 'react-timeago';
+
+
 import User from './UserComponent.jsx';
 import AwesomeComponent from './AwesomeComponent.jsx';
 
-import SearchInput, {createFilter} from 'react-search-input'
+import SearchInput, {createFilter} from 'react-search-input';
+
+
 
 class Page extends React.Component {
 
@@ -18,7 +24,7 @@ constructor(props){
           searchToggle: false,
          data : [
 
-{ id:1,
+{ id:new Date("Fri Jul 15 2016 14:31:51 GMT-0500 (CDT)"),
   im:"https://ui8.s3.amazonaws.com/uploads/retina_material_detail3_1414859554045.png",
   postbyname:"Call-Em-All",
   postbyavatar:"https://pbs.twimg.com/profile_images/378800000483764274/ebce94fb34c055f3dc238627a576d251.jpeg",
@@ -32,7 +38,7 @@ constructor(props){
     ]
 },
          {
-  id:2,     
+  id:new Date("Fri Jul 15 2015 14:31:51 GMT-0500 (CDT)"),     
   im:"http://jamidavisphotography.com/wp-content/uploads/2016/02/St.-Petersburg-Photography-2.jpg",
   postbyname:"Phoebe Buffay",
   postbyavatar:"https://pbs.twimg.com/profile_images/378800000483764274/ebce94fb34c055f3dc238627a576d251.jpeg",
@@ -45,7 +51,7 @@ constructor(props){
     ]
 },
 {
-  id:3,
+  id:new Date("Fri Jul 17 2014 14:31:51 GMT-0500 (CDT)"),
   im:"http://cin.h-cdn.co/assets/15/41/980x490/landscape-1444235843-picmonkey-collage2.jpg",
   postbyname:"Monica Geller",
   postbyavatar:"https://pbs.twimg.com/profile_images/378800000483764274/ebce94fb34c055f3dc238627a576d251.jpeg",
@@ -59,7 +65,7 @@ constructor(props){
 }
 ,
 
-  { id:4,
+  { id:new Date("Fri Jul 14 2012 14:31:51 GMT-0500 (CDT)"),
     im:"http://exploregram.com/wp-content/uploads/2015/02/Happy-Valentines-Day-everyone-Breakfast-were-waffles-with-lots-of-red-toppings-strawbs-bluebs-pomegr.jpg",postbyname:"Tim Cook",postbyavatar:"https://pbs.twimg.com/profile_images/378800000483764274/ebce94fb34c055f3dc238627a576d251.jpeg",
   postbyname:"Chandler Bing",
   postbyavatar:"https://pbs.twimg.com/profile_images/378800000483764274/ebce94fb34c055f3dc238627a576d251.jpeg",
@@ -72,7 +78,7 @@ constructor(props){
     ]
 },
 {
-  id:5,
+  id:new Date("Fri Jul 14 2012 15:31:51 GMT-0500 (CDT)"),
   im:"https://metrouk2.files.wordpress.com/2016/06/battle-of-bastards.jpg?w=748&h=466&crop=1",
   postbyname:"Sansa Stark",
   postbyavatar:"https://pbs.twimg.com/profile_images/378800000483764274/ebce94fb34c055f3dc238627a576d251.jpeg",
@@ -105,12 +111,18 @@ this.setState({key: tagForSearch , searchToggle : searchToggle});
 
     handlePost(url, tag){
 //console.log(" handlepost in merge "+url);
+
+var time = new Date();
+
+
+
+
        this.setState({url: url,tag:tag}); 
        const data = this.state.data;
        let uName = this.state.username;
      //  console.log(data.length);
       data.unshift({
-  id : data.length+1,      
+  id : time,      
   im:url,
   postbyname:uName,
   postbyavatar:"https://pbs.twimg.com/profile_images/378800000483764274/ebce94fb34c055f3dc238627a576d251.jpeg",
@@ -137,7 +149,6 @@ this.setState({data});
 render(){
 
 
-
   const KEYS_TO_FILTERS = ['hashTag'];
 const filteredPostData = this.state.data.filter(createFilter(this.state.key, KEYS_TO_FILTERS));  
   //console.log(" key>>  "+this.state.key + " on ? "+ this.state.searchToggle);
@@ -148,8 +159,8 @@ var searchFunction = this.handleTagSearch;
 
 
 var filteredPosts = filteredPostData.map(function(pics){
- // console.log(pics.id);
-return <AwesomeComponent key = {pics.id} tagForSearch = {searchFunction} userLoggegIn = {username} pic={pics.im} postbyname = {pics.postbyname} postbyavatar = {pics.postbyavatar} title={pics.ti} notes={pics.hashTag} comments = {pics.comments}/>
+
+return <AwesomeComponent key = {pics.id} time = {pics.id} tagForSearch = {searchFunction} userLoggegIn = {username} pic={pics.im} postbyname = {pics.postbyname} postbyavatar = {pics.postbyavatar} title={pics.ti} notes={pics.hashTag} comments = {pics.comments}/>
 });
 
 
