@@ -44,7 +44,7 @@ const fruit = [
   'Watermelon',
 ];
 
-const tagbank = ['#Fashion','#Photography','#GOT','#Travel','#Travel','#TravelDiaries','#Food','Foodgasm','#Foodlove','#Fun',];
+const tagbank = ['#Fashion','#Photography','#GOT','#Travel','#Travel','#TravelDiaries','#Food','#Foodgasm','#Foodlove','#Fun',];
 
 //injectTapEventPlugin();
 
@@ -70,7 +70,7 @@ const style = {
       open: false,
       postDialogOpen :false,
        snackbarOpen: false,
-      url:"http://terrain-mag.com/wp-content/uploads/2014/10/shutterstock_1330842741.jpg",
+      url:"http://lorempixel.com/600/337",
       tag:"",
        
     };

@@ -81,7 +81,7 @@ this.props.tagForSearch(tagForSearch, true);
 
   render() {
 
-    console.log(this.props.time);
+    //console.log(this.props.time);
 
 var commentList =this.props.comments.map(function(comment){
 

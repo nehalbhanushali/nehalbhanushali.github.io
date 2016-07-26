@@ -119,8 +119,8 @@ handlePost(url, tag){
        open={this.state.drawerOpen}
 onRequestChange={(drawerOpen) => this.setState({drawerOpen})}
        >
-       
-          <MenuItem onTouchTap={this.handleClose}><NavigationClose /></MenuItem>
+        <AppBar iconElementLeft ={<NavigationClose onTouchTap={this.handleClose} />} />
+     
           <MenuItem leftIcon={<ActionLabel color={orange500} />}>{this.state.username}</MenuItem>
            <MenuItem onTouchTap={this.handleLogout}>{this.state.loggedIn ? "Logout" : " " }</MenuItem>
           

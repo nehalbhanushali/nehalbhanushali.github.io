@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c37196f24f588a093b59"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2c9dc5549f735f1858aa"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -604,16 +604,53 @@
 	
 	var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
 	
+	var _colors = __webpack_require__(/*! material-ui/styles/colors */ 291);
+	
+	var _colorManipulator = __webpack_require__(/*! material-ui/utils/colorManipulator */ 289);
+	
 	var _Merge = __webpack_require__(/*! ./Merge.jsx */ 331);
 	
 	var _Merge2 = _interopRequireDefault(_Merge);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var muiTheme = (0, _getMuiTheme2.default)({
+	  spacing: {
+	    iconSize: 24,
+	    desktopGutter: 24,
+	    desktopGutterMore: 32,
+	    desktopGutterLess: 16,
+	    desktopGutterMini: 8,
+	    desktopKeylineIncrement: 64,
+	    desktopDropDownMenuItemHeight: 32,
+	    desktopDropDownMenuFontSize: 15,
+	    desktopDrawerMenuItemHeight: 48,
+	    desktopSubheaderHeight: 48,
+	    desktopToolbarHeight: 56
+	  },
+	  fontFamily: 'Roboto, sans-serif',
+	  palette: {
+	    primary1Color: _colors.grey700,
+	    primary2Color: _colors.grey800,
+	    primary3Color: _colors.grey900,
+	    accent1Color: _colors.pink300,
+	    accent2Color: _colors.pink400,
+	    accent3Color: _colors.pink500,
+	    textColor: _colors.darkBlack,
+	    alternateTextColor: _colors.white,
+	    canvasColor: _colors.white,
+	    borderColor: _colors.grey300,
+	    disabledColor: (0, _colorManipulator.fade)(_colors.darkBlack, 0.3),
+	    pickerHeaderColor: _colors.cyan500,
+	    clockCircleColor: (0, _colorManipulator.fade)(_colors.darkBlack, 0.07),
+	    shadowColor: _colors.fullBlack
+	  }
+	});
+	
 	var App = function App() {
 	  return _react2.default.createElement(
 	    _MuiThemeProvider2.default,
-	    { muiTheme: (0, _getMuiTheme2.default)() },
+	    { muiTheme: muiTheme },
 	    _react2.default.createElement(_Merge2.default, null)
 	  );
 	};
@@ -29752,7 +29789,7 @@
 	      tag: '',
 	      key: '',
 	      searchToggle: false,
-	      data: [{ id: new Date("Fri Jul 15 2016 14:31:51 GMT-0500 (CDT)"),
+	      data: [{ id: new Date(),
 	        im: "https://ui8.s3.amazonaws.com/uploads/retina_material_detail3_1414859554045.png",
 	        postbyname: "Call-Em-All",
 	        postbyavatar: "https://pbs.twimg.com/profile_images/378800000483764274/ebce94fb34c055f3dc238627a576d251.jpeg",
@@ -29841,6 +29878,7 @@
 	      var username = this.state.username;
 	      //var url = this.props.postURL;
 	      //var tag = this.props.postTag;
+	      //<Time value={wasDate} titleFormat="YYYY/MM/DD HH:mm" relative /> ## todo
 	      var searchFunction = this.handleTagSearch;
 	
 	      var filteredPosts = filteredPostData.map(function (pics) {
@@ -44690,11 +44728,7 @@
 	              return _this2.setState({ drawerOpen: drawerOpen });
 	            }
 	          },
-	          _react2.default.createElement(
-	            _MenuItem2.default,
-	            { onTouchTap: this.handleClose },
-	            _react2.default.createElement(_close2.default, null)
-	          ),
+	          _react2.default.createElement(_AppBar2.default, { iconElementLeft: _react2.default.createElement(_close2.default, { onTouchTap: this.handleClose }) }),
 	          _react2.default.createElement(
 	            _MenuItem2.default,
 	            { leftIcon: _react2.default.createElement(_label2.default, { color: _colors.orange500 }) },
@@ -54014,7 +54048,7 @@
 	
 	var fruit = ['Apple', 'Apricot', 'Avocado', 'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry', 'Boysenberry', 'Blood Orange', 'Cantaloupe', 'Currant', 'Cherry', 'Cherimoya', 'Cloudberry', 'Coconut', 'Cranberry', 'Clementine', 'Damson', 'Date', 'Dragonfruit', 'Durian', 'Elderberry', 'Feijoa', 'Fig', 'Goji berry', 'Gooseberry', 'Grape', 'Grapefruit', 'Guava', 'Honeydew', 'Huckleberry', 'Jabouticaba', 'Jackfruit', 'Jambul', 'Jujube', 'Juniper berry', 'Kiwi fruit', 'Kumquat', 'Lemon', 'Lime', 'Loquat', 'Lychee', 'Nectarine', 'Mango', 'Marion berry', 'Melon', 'Miracle fruit', 'Mulberry', 'Mandarine', 'Olive', 'Orange', 'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Physalis', 'Plum', 'Pineapple', 'Pumpkin', 'Pomegranate', 'Pomelo', 'Purple Mangosteen', 'Quince', 'Raspberry', 'Raisin', 'Rambutan', 'Redcurrant', 'Salal berry', 'Satsuma', 'Star fruit', 'Strawberry', 'Squash', 'Salmonberry', 'Tamarillo', 'Tamarind', 'Tomato', 'Tangerine', 'Ugli fruit', 'Watermelon'];
 	
-	var tagbank = ['#Fashion', '#Photography', '#GOT', '#Travel', '#Travel', '#TravelDiaries', '#Food', 'Foodgasm', '#Foodlove', '#Fun'];
+	var tagbank = ['#Fashion', '#Photography', '#GOT', '#Travel', '#Travel', '#TravelDiaries', '#Food', '#Foodgasm', '#Foodlove', '#Fun'];
 	
 	//injectTapEventPlugin();
 	
@@ -54043,7 +54077,7 @@
 	      open: false,
 	      postDialogOpen: false,
 	      snackbarOpen: false,
-	      url: "http://terrain-mag.com/wp-content/uploads/2014/10/shutterstock_1330842741.jpg",
+	      url: "http://lorempixel.com/600/337",
 	      tag: ""
 	
 	    };
@@ -60420,7 +60454,7 @@
 	    key: 'render',
 	    value: function render() {
 	
-	      console.log(this.props.time);
+	      //console.log(this.props.time);
 	
 	      var commentList = this.props.comments.map(function (comment) {
 	

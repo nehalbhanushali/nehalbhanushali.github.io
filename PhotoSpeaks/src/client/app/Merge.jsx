@@ -24,7 +24,7 @@ constructor(props){
           searchToggle: false,
          data : [
 
-{ id:new Date("Fri Jul 15 2016 14:31:51 GMT-0500 (CDT)"),
+{ id:new Date(),
   im:"https://ui8.s3.amazonaws.com/uploads/retina_material_detail3_1414859554045.png",
   postbyname:"Call-Em-All",
   postbyavatar:"https://pbs.twimg.com/profile_images/378800000483764274/ebce94fb34c055f3dc238627a576d251.jpeg",
@@ -155,6 +155,7 @@ const filteredPostData = this.state.data.filter(createFilter(this.state.key, KEY
 var username = this.state.username;
 //var url = this.props.postURL;
 //var tag = this.props.postTag;
+//<Time value={wasDate} titleFormat="YYYY/MM/DD HH:mm" relative /> ## todo
 var searchFunction = this.handleTagSearch;
 
 
