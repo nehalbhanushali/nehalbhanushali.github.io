@@ -12,7 +12,7 @@ constructor(props){
          userData : []
 
         }
-      //  this.handlePost = this.handlePost.bind(this);
+       this.responseFacebook = this.responseFacebook.bind(this);
 
     }
 
@@ -26,6 +26,9 @@ responseFacebook(response){
     'Thanks for logging in, ' + response.name + '!';
 
     this.setState({userData: response});
+
+    window.location.href = "../home.html"
+
     //this.props.userLoginInfo(response);
   } else if (response.status === 'not_authorized') {
     // The person is logged into Facebook, but not your app.
@@ -47,6 +50,8 @@ render(){
     appId="1229974300360018"
     autoLoad={true}
     callback={this.responseFacebook} />;
+
+
 
 return (<Col xs={12} sm ={10} smOffset = {1} md={8} mdOffset={2} lg = {6} lgOffset={3}>
   
