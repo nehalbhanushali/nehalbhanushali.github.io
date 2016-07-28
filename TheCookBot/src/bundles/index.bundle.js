@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "cc2febd65e69a3415991"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "cd49ed7822686d2ed4fd"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -30933,6 +30933,7 @@
 	
 	        this.setState({ userData: response });
 	
+	        window.location.href = 'home.html';
 	        //this.props.userLoginInfo(response);
 	      } else if (response.status === 'not_authorized') {
 	        // The person is logged into Facebook, but not your app.
