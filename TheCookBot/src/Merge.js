@@ -20,6 +20,7 @@ constructor(props){
 responseFacebook(response){
 
    console.log(JSON.stringify(response) + " "+response.status);
+   var stringResponse = JSON.stringify(response);
   if (response.name.length >0) {
     // Logged into your app and Facebook.
   document.getElementById('status').innerHTML =
@@ -27,7 +28,7 @@ responseFacebook(response){
 
     this.setState({userData: response});
 
-    window.location.href = "home.html"
+    window.location.href = "home.html?"+stringResponse;
 
     //this.props.userLoginInfo(response);
   } else if (response.status === 'not_authorized') {
