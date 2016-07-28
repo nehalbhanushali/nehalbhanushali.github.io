@@ -28,7 +28,11 @@ responseFacebook(response){
 
     this.setState({userData: response});
 
-    window.location.href = "home.html?"+stringResponse;
+   localStorage.setItem("userData", stringResponse);
+
+
+console.log("from local st "+localStorage.getItem("userData")
+    //window.location.href = "./home.html?";
 
     //this.props.userLoginInfo(response);
   } else if (response.status === 'not_authorized') {
@@ -51,8 +55,6 @@ render(){
     appId="1229974300360018"
     autoLoad={true}
     callback={this.responseFacebook} />;
-
-
 
 return (<Col xs={12} sm ={10} smOffset = {1} md={8} mdOffset={2} lg = {6} lgOffset={3}>
   
