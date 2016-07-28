@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "15f7d04a667afcf6119c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "cc2febd65e69a3415991"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -653,28 +653,25 @@
 	_reactDom2.default.render(_react2.default.createElement(
 	  _MuiThemeProvider2.default,
 	  { muiTheme: muiTheme },
-	  _react2.default.createElement(
-	    _reactHotLoader.AppContainer,
-	    null,
-	    _react2.default.createElement(_Merge2.default, null)
-	  )
+	  _react2.default.createElement(_Merge2.default, null)
 	), rootElement);
 	
-	if (true) {
-	  module.hot.accept(/*! ./Merge */ 343, function () {
-	    var NextApp = __webpack_require__(/*! ./Merge */ 343).default;
+	/*if (module.hot) {
+	  module.hot.accept('./Merge', () => {
+	    const NextApp = require('./Merge').default;
 	
-	    _reactDom2.default.render(_react2.default.createElement(
-	      _MuiThemeProvider2.default,
-	      { muiTheme: muiTheme },
-	      _react2.default.createElement(
-	        _reactHotLoader.AppContainer,
-	        null,
-	        _react2.default.createElement(NextApp, null)
-	      )
-	    ), rootElement);
+	
+	    ReactDOM.render(
+	      <MuiThemeProvider muiTheme={muiTheme}>
+	      <AppContainer>
+	         <NextApp />
+	      </AppContainer>
+	      </MuiThemeProvider>,
+	      rootElement
+	    );
 	  });
-	}
+	}*/
+	
 	;
 	
 	(function () {
@@ -30926,14 +30923,15 @@
 	    key: 'responseFacebook',
 	    value: function responseFacebook(response) {
 	
-	      console.log(JSON.stringify(response) + " " + response.status);
+	      var stringResponse = JSON.stringify(response);
+	      localStorage.setItem("userData", stringResponse);
+	
+	      console.log("from local st " + localStorage.getItem("userData"));
 	      if (response.name.length > 0) {
 	        // Logged into your app and Facebook.
 	        document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
 	
 	        this.setState({ userData: response });
-	
-	        window.location.href = "../home.html";
 	
 	        //this.props.userLoginInfo(response);
 	      } else if (response.status === 'not_authorized') {

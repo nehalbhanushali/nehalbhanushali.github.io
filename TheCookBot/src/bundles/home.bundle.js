@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "15f7d04a667afcf6119c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "cc2febd65e69a3415991"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -30910,14 +30910,15 @@
 	    key: 'responseFacebook',
 	    value: function responseFacebook(response) {
 	
-	      console.log(JSON.stringify(response) + " " + response.status);
+	      var stringResponse = JSON.stringify(response);
+	      localStorage.setItem("userData", stringResponse);
+	
+	      console.log("from local st " + localStorage.getItem("userData"));
 	      if (response.name.length > 0) {
 	        // Logged into your app and Facebook.
 	        document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
 	
 	        this.setState({ userData: response });
-	
-	        window.location.href = "../home.html";
 	
 	        //this.props.userLoginInfo(response);
 	      } else if (response.status === 'not_authorized') {
