@@ -46,14 +46,14 @@ const rootElement = document.getElementById('root');
 ReactDOM.render(
   
     <MuiThemeProvider muiTheme={muiTheme}>
-    <AppContainer>
+  
    <Page />
-   </AppContainer>
+
   </MuiThemeProvider>,
   rootElement
 );
 
-if (module.hot) {
+/*if (module.hot) {
   module.hot.accept('./Merge', () => {
     const NextApp = require('./Merge').default;
 
@@ -67,5 +67,5 @@ if (module.hot) {
       rootElement
     );
   });
-}
+}*/
 
