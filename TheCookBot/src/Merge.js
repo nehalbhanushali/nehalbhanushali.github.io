@@ -27,7 +27,7 @@ responseFacebook(response){
 
     this.setState({userData: response});
 
-    window.location.href = "../home.html"
+    window.location.href = "home.html"
 
     //this.props.userLoginInfo(response);
   } else if (response.status === 'not_authorized') {
