@@ -1,18 +1,20 @@
 var path = require('path');
 var webpack = require('webpack');
 
-module.exports = {
+var BUILD_DIR = path.resolve(__dirname, 'src/bundles');
+var APP_DIR = path.resolve(__dirname, 'src/');
+
+var config = {
   devtool: 'eval',
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
-    './src/index'
-  ],
+  entry: {
+     index: APP_DIR + '/index',
+    home: APP_DIR + '/home'
+  
+  },
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/static/'
+    path: BUILD_DIR,
+    filename: "[name].bundle.js"
+
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
@@ -34,7 +36,9 @@ module.exports = {
         "presets": ["es2015", "stage-0", "react"],
         "plugins": ["react-hot-loader/babel"]
       },
-      include: path.join(__dirname, 'src')
+      include: APP_DIR
     }]
   }
 };
+
+module.exports = config;

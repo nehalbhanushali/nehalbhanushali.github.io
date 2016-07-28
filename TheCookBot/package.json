@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-   
-    "start": "webpack-dev-server --progress"
+     "start": "webpack-dev-server --progress",
+    "compile": "webpack -d",
+    "dev": "webpack -d --progress --colors --watch",
+    "test": "webpack --progress --colors -d --display-chunks --display-reasons --display-error-details"
 
   },
   "keywords": [],
