@@ -88,7 +88,7 @@ return (<div>
     />
  <CardActions>
  
-{appContent}
+
   
    </CardActions> 
     <CardText>

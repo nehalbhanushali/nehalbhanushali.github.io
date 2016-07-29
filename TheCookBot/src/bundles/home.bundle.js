@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a3b80361c40b39f83bed"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9ce78a2959749061936f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -30992,11 +30992,7 @@
 	              subtitle: 'Recipe by ingredients and more..',
 	              avatar: 'http://lorempixel.com/100/100/food/'
 	            }),
-	            _react2.default.createElement(
-	              _Card.CardActions,
-	              null,
-	              appContent
-	            ),
+	            _react2.default.createElement(_Card.CardActions, null),
 	            _react2.default.createElement(
 	              _Card.CardText,
 	              null,
