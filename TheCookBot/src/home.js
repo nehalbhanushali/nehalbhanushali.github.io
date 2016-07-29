@@ -6,7 +6,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {red300,red200,red100,pink300,pink400,pink500,indigo500, indigo700, grey900, grey800, grey700, grey100, indigo300, grey300, grey400, grey500,pinkA200,white, darkBlack, fullBlack, cyan500, green700} from 'material-ui/styles/colors';
 import {fade} from 'material-ui/utils/colorManipulator';
 
-import Page from './Merge.js';
+
+
+import MainComponent from './MainComponent.js';
 
 const muiTheme = getMuiTheme({
   spacing: {
@@ -47,7 +49,7 @@ ReactDOM.render(
   
     <MuiThemeProvider muiTheme={muiTheme}>
    
-   <div>home</div>
+   <MainComponent/>
 
   </MuiThemeProvider>,
   rootElement
