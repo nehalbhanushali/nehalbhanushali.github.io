@@ -332,7 +332,12 @@
      <script>
       $( "#photo_speaks" ).click(function() {
       
-    window.location.href = "PhotoSpeaks/src/client/index.html";
+   // window.location.href = "PhotoSpeaks/src/client/index.html";
+	
+	window.open(
+  'PhotoSpeaks/src/client/index.html',
+  '_blank' // <- This is what makes it open in a new window.
+);
 });
 
 
