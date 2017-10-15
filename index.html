@@ -232,7 +232,7 @@
                                 <div class="project-category text-faded">
                                     Advanced Data Sciences
                                 </div>
-                                <div class="project-name">
+                                <div class="project-name" id ="bitocoin-application">
                                     Bitcoin price prediction and transaction network analysis
                                 </div>
                             </div>
@@ -343,14 +343,26 @@
 
       $( "#the_nomadic_clan" ).click(function() {
 	      
-      window.location.href ="TheNomadicClan/TheNomadicClan/WebContent/index.html"; 
+      window.open("TheNomadicClan/TheNomadicClan/WebContent/index.html","_blank"); 
     //window.location.href = "../TheNomadicClan-TravelSocialNetwork/WebContent/index.html";
 });
 
           $( "#the_cook_bot" ).click(function() {
       
-    window.location.href = "TheCookBot/index.html";
+    window.open("TheCookBot/index.html","_blank");
 });
+	     
+	      $( "# bitocoin-application" ).click(function() {
+      
+   // window.location.href = "PhotoSpeaks/src/client/index.html";
+	
+	window.open(
+  'https://nameless-stream-51270.herokuapp.com/',
+  '_blank' // <- This is what makes it open in a new window.
+);
+});
+	     
+	    
     </script>
 
 </body>
